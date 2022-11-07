@@ -1,0 +1,144 @@
+# 3.2 - DataViz First Steps
+
+```elixir
+Mix.install([
+  {:vega_lite, "~> 0.1.5"},
+  {:kino_vega_lite, "~> 0.1.1"},
+  {:explorer, "~> 0.2.0"}
+])
+```
+
+## Intro
+
+Today we are going to be looking at how to get up and going with VegaLite by making a several charts to get a feel for how it works.
+
+The list of datasets can be found at - https://vincentarelbundock.github.io/Rdatasets/datasets.html
+
+Today we'll be using the `mpg` dataset which cn be found here - https://vincentarelbundock.github.io/Rdatasets/csv/ggplot2/mpg.csv.  If your unfamiliar with this datasets you can read the documentation [here](https://vincentarelbundock.github.io/Rdatasets/doc/ggplot2/mpg.html) which gives describes the mpg dataset and gives greater detail as to what each variable is.
+
+I've gone ahead and downloaded the mpg csv to a folder on my hard drive.
+
+It doesn't matter where you put it, just make sure you can get to it.
+
+```elixir
+alias Explorer.{DataFrame, Series}
+alias VegaLite, as: Vl
+
+data_path = "~/Documents/r4ds/data/"
+file_name = "mpg.csv"
+
+mpg_file = data_path <> file_name
+```
+
+## Creating a DataFrame
+
+```elixir
+mpg =
+  DataFrame.from_csv!(mpg_file)
+  # Remove old id column
+  |> DataFrame.select([""], :drop)
+```
+
+## Using Smart Cells to Create Plots
+
+Create a scatterplot with Vegalite with Smart Cells with `displ` on x-axis and `hwy` on y-axis
+
+Notes: Smart Cells provide a way to quickly generate charts with a GUI interface and the ability to switch to see the underlying code that it generated.
+
+<!-- livebook:{"attrs":{"chart_title":null,"height":null,"layers":[{"chart_type":"point","color_field":null,"color_field_aggregate":null,"color_field_type":null,"data_variable":"mpg","x_field":"displ","x_field_aggregate":null,"x_field_type":"quantitative","y_field":"hwy","y_field_aggregate":null,"y_field_type":"quantitative"}],"vl_alias":"Elixir.Vl","width":null},"kind":"Elixir.KinoVegaLite.ChartCell","livebook_object":"smart_cell"} -->
+
+```elixir
+Vl.new()
+|> Vl.data_from_values(mpg, only: ["displ", "hwy"])
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+```
+
+## Reading Data from External Source
+
+```elixir
+mpg_url = "https://vincentarelbundock.github.io/Rdatasets/csv/ggplot2/mpg.csv"
+
+Vl.new()
+|> Vl.data_from_url(mpg_url)
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+```
+
+## 3.2.3 Vega-Lite Graphing Template
+
+The basic template to use for creating a single chart will follow the template below:
+
+<!-- livebook:{"force_markdown":true} -->
+
+```elixir
+Vl.new() # Initialize a Vega-Lite Chart
+|> Vl.data_from_*(data) # Read in data
+|> Vl.transform() # Manipulate the data - optional
+|> Vl.param() # Add interactivity - optional
+|> Vl.mark(:mark) # Specify the shape used
+|> Vl.encode_field(:var, "field_name", type: :quantitative) # Encode channels (:x, :y, etc...) with specific fields from the dataset
+... # encode as many channels as you wish
+```
+
+## 3.2.4 Exercises
+
+**Exercise 1**
+
+What do you see from VegaLite when just passing `mpg` dataset?
+
+> Note: A `mark` is required.  You will recieve and error if you do not supply one.
+
+```elixir
+Vl.new(width: 400)
+|> Vl.data_from_values(mpg)
+|> Vl.mark(:point)
+```
+
+**Exercise 2**
+
+How many rows are in `mpg`?  How many columns
+
+```elixir
+mpg
+```
+
+**Exercise 3**
+
+What does the `drv` variable describe?
+
+`drv` - the type of drive train, where f = front-wheel drive, r = rear wheel drive, 4 = 4wd
+
+https://vincentarelbundock.github.io/Rdatasets/doc/ggplot2/mpg.html
+
+<!-- livebook:{"break_markdown":true} -->
+
+**Exercise 4**
+
+Make a scatterplot of `hwy` vs `cyl`.
+
+<!-- livebook:{"attrs":{"chart_title":null,"height":null,"layers":[{"chart_type":"point","color_field":null,"color_field_aggregate":null,"color_field_type":null,"data_variable":"mpg","x_field":"hwy","x_field_aggregate":null,"x_field_type":"quantitative","y_field":"cyl","y_field_aggregate":null,"y_field_type":"nominal"}],"vl_alias":"Elixir.Vl","width":null},"kind":"Elixir.KinoVegaLite.ChartCell","livebook_object":"smart_cell"} -->
+
+```elixir
+Vl.new()
+|> Vl.data_from_values(mpg, only: ["hwy", "cyl"])
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "hwy", type: :quantitative)
+|> Vl.encode_field(:y, "cyl", type: :nominal)
+```
+
+**Exercise 5**
+
+What happens if you make a scatterplot of `class` vs `drv`?
+
+<!-- livebook:{"attrs":{"chart_title":null,"height":null,"layers":[{"chart_type":"point","color_field":null,"color_field_aggregate":null,"color_field_type":null,"data_variable":"mpg","x_field":"class","x_field_aggregate":null,"x_field_type":null,"y_field":"drv","y_field_aggregate":null,"y_field_type":null}],"vl_alias":"Elixir.Vl","width":null},"kind":"Elixir.KinoVegaLite.ChartCell","livebook_object":"smart_cell"} -->
+
+```elixir
+Vl.new()
+|> Vl.data_from_values(mpg, only: ["class", "drv"])
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "class")
+|> Vl.encode_field(:y, "drv")
+```

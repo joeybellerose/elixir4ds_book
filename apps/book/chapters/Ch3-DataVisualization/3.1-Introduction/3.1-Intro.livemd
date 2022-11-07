@@ -1,0 +1,62 @@
+# 3.1 - Introduction
+
+```elixir
+Mix.install([
+  {:vega_lite, "~> 0.1.5"},
+  {:kino, "~> 0.6.2"},
+  {:kino_vega_lite, "~> 0.1.2"},
+  {:explorer, "~> 0.2.0"}
+])
+```
+
+## Intro
+
+```elixir
+2 + 2
+```
+
+* We're starting a new series on Elixir for Data Science where we'll walk through the concepts of Data Science and rebuild the code from the book R for Data Science with Elixir.  My hope is the at the end of this, you'll have a solid foundation of Data Science and will understand how to apply it's principles with the
+
+Why R4DS?
+
+* R for Data Science was foundational for me for getting into the field of Data Science.
+* It made Data Science approachable
+* It does a really good job laying out all the tasks a Data Scientist needs to do and not just the glamorous part of creating
+
+Why Elixir For Data Science?
+
+* Data Science is inherently functional
+
+  * What does functional mean?
+    If you remember back to your Algebra days you came across the concept of a function.  That function would doe some transformation a(typically to x) and save it to a variable (typically y) and looked something like this $$ y = f(x) $$
+    * What makes functional languages special is that given the same input, the output will always be the same.
+    * While you may be thinking "duh", this is not case with many programming languages
+  * What do I mean?
+    * 
+    * Much in the same way, Elixir uses functions to take data and transform it through multiple steps for a desired outcome, model, etc...
+    * IMHO this is with the Tidyverse for R is so wonderful
+    * Now imagine where the functional nature of Tidyvers is applied throughout the whole language
+
+* Stack Overflmagesow 2022 Survey Results
+  ![](images/StackOverflow2022Elixir.png)
+  ![](assets/StackOverflow2022Phoenix.png)
+
+  ![](3.1-LoadPackages.png)
+
+Why go through R4DS with ELixir?
+
+* I want to put Elixir through it's paces by recreating all the code in R4DS to see if it can acutually handle a real Data Scientist's workload
+* With that let's install the packages we need
+
+Resources
+
+* Thinking Elixir Podcast - Machine Learning https://podcast.thinkingelixir.com/102
+* Thinking Elixir Poscast - Exploring Data https://podcast.thinkingelixir.com/104
+* Go check out the podcasts to get more detail about where the Elixir Data Science community is and where it's headed
+
+Book - https://r4ds.had.co.nz/data-visualisation.html
+
+```elixir
+alias Explorer.{DataFrame, Series}
+alias VegaLite, as: Vl
+```

@@ -1,0 +1,108 @@
+# Chapter 1 - Introduction
+
+## Introduction
+
+This book will teach you how to do Data Science with Elixir.  This book is for beginners to Data Science.  No prior programming experience is necessary.
+
+The go-to programming langugages for Data Science have been R and Python.  Throughout the introduction and book, we will explain and show why we beleive Elixir can be your one-stop-shop for all things Data Science.  To include:
+
+* Data Cleaning/Wrangling
+* Data Visualization
+* Modeling
+* Publishing (Deploying) Your Project - (i.e. Web Apps)
+
+<!-- livebook:{"break_markdown":true} -->
+
+Our goal is the by the end of this book, you will have a solid foundation of Data Science and will understand how to apply the principles with the fantastic tools that Elixir affords you.  We would like to invite you to join us in exploring how to do Data Science with Elixir.
+
+## Why Translate R4DS?
+
+In this book, we will walk through the concepts of Data Science and rebuild the code from the book [R for Data Science (R4DS)](https://r4ds.had.co.nz/) with Elixir. In addition to translating the code, we will also be sprinkling in heavy doses of Elixir-specific features (real-time updates), packages (Explorer and Vega-Lite) and products (Livebook).
+
+[R4DS](https://r4ds.had.co.nz/) has been foundational for many getting into the field of Data Science. It has made Data Science very approachable. R4DS does a fantastic job laying out all the tasks a Data Scientist needs to do and not just the glamorous part of creating super cool models that write games, predict prices or summarize text.
+
+We view R4DS as a great benchmark for any language attempting to do Data Science. Our plan is to put Elixir through its paces by recreating all the code in R4DS and see where it shines and where it still has work to do. This will give you a clearer picture of how well it does with the workload of a real Data Scientist.
+
+<!-- livebook:{"break_markdown":true} -->
+
+> #### Note
+> 
+> We take no credit for the original R For Data Science material, as it was written by Hadley Wickham and Garrett Grolemund.
+
+## What is Elixir, and What Makes it Special?
+
+According to the [home page](https://elixir-lang.org), “Elixir is a dynamic, functional language for building scalable and maintainable applications.” Great, what does all that mean? Let’s break it down.
+
+1. **Dynamic** – Elixir lets you write your code without having to specify the types (e.g., int, string, float, etc…) for all your variables which saves you time and allows you to iterate faster. This is similar to what you do in Python.
+2. **Functional** – This style of programming is focused on grouping your code into functions that can be reused to create data transformation pipelines.
+3. **Scalable** – “All Elixir code runs inside lightweight threads of execution (called processes) that are isolated and exchange information via messages.”. It is not uncommon to have thousands of processes running at the same time. In short, more processes equals doing more stuff at the same time. This is a big difference to the typical single-threaded languages that most people use.
+4. **Maintainable** – Elixir guarantees data immutability, meaning it never changes. This guarantees that your functions will always return the same result given the same input. As obvious as it sounds, this is not always the case in languages that allow side effects. Combine that with the functional approach to writing software, and you have a recipe for code that is short, concise and just works. It’s refreshing to know that 2 + 2 will always equal 4.
+
+## Why Should You Use Elixir for Data Science?
+
+#### Elixir...
+
+1. **Is Functional In Nature** - If you remember back to your Algebra days, you came across the concept of a function. That function would do some transformation (typically to x) and save it to a variable (typically y) and looked something like this y=f(x). What makes functional languages special is that given the same input, the output will always be the same. While you may be thinking “duh”, this is not the case with many programming languages.
+2. **Provides Clarity in Transforming Data** - Elixir uses functions to take data and transform it through multiple steps for a desired outcome, model, etc.. This is what makes the [Tidyverse](https://www.tidyverse.org) for R so wonderful. Imagine a whole language that works like the Tidyverse!
+3. **Is A Tool Worth Using** - If you don’t enjoy a tool, then you’ll never use it regardless of how many “obvious” benefits. According to the Stack Overflow 2022 survey below, Elixir is the 2nd most loved language with the most loved web framework. The main point here is that the people using Elixir actually enjoy working in it.
+
+<!-- livebook:{"break_markdown":true} -->
+
+#### StackOverflow 2022 Survey Results
+
+![](images/1.0-StackOverflow2022Elixir.png)
+![](images/1.0-StackOverflow2022Phoenix.png)
+
+> #### Note
+> 
+> Elixir already has a production-ready web framework named Phoenix. Do you want to use your model in your website? Done. Do you want to deploy your model results as an API for others to consume? No problem. And the cool part is, Phoenix is The Most Loved Web Framework according to the Stack Overflow 2022 Survey (shown below).
+
+<!-- livebook:{"break_markdown":true} -->
+
+1. **Provides A Clear Path to Production** - Building models on your machine is rewarding, but what about when you are ready to go live? How much additional effort and complexity is needed to turn your Python or R code into something that is production ready?
+
+* How will you handle …
+  * Background Jobs
+  * Crash Recovery
+  * Long-Running Requests
+  * Low Latency App State
+  * Etc.
+
+<!-- livebook:{"break_markdown":true} -->
+
+In the book, [Elixir In Action](https://www.manning.com/books/elixir-in-action), Sasa Juric showed (in the table below) that Elixir (built on top of Erlang) gives you all of these capabilities!
+
+![](images/1.0-elixir-in-action-table.png)
+
+With Elixir, you will not need additional technologies to handle these real-world requirements.  If you are new to programming, why burden yourself with additional complexity
+
+## Setup and Installation
+
+If you’re still with me, let’s get the setup and install out of the way. There are 3 ways to get up and going with Elixir and Livebook.
+
+<!-- livebook:{"break_markdown":true} -->
+
+1. If you have access to a computer, the easiest way to get up and going is selecting the Mac or Windows option and downloading the appropriate software for your computer. This requires zero setup. Once downloaded, simply install Livebook, and you’re up and running. That’s it!
+
+![](images/1.0-flyio.png)
+
+1. If you want to work in the cloud, select the Fly.io option. This requires setting up an account and a few odds and ends. You should be up and running in under 5 minutes. No, I’m not lying. I actually did have a cloud version of Livebook going in under 5 minutes.
+
+![](images/1.0-flyio2.png)
+
+1. If you’d like to manually install all the parts yourself, then you’ll need to install Erlang, Elixir and run Escript to install Livebook. You can find the directions [here](https://github.com/livebook-dev/livebook#installation).
+
+<!-- livebook:{"break_markdown":true} -->
+
+Finally, let’s install the packages you’ll need:
+
+<!-- livebook:{"force_markdown":true} -->
+
+```elixir
+Mix.install([
+  {:vega_lite, "~> 0.1.6"},
+  {:kino, "~> 0.6.2"},
+  {:kino_vega_lite, "~> 0.1.2"},
+  {:explorer, "~> 0.3.0"}
+])
+```

@@ -1,0 +1,8 @@
+# Appendix
+
+## Resources
+
+* [Thinking Elixir Podcast](https://podcast.thinkingelixir.com/)
+  * [Machine Learning](https://podcast.thinkingelixir.com/102)
+  * [Exploring Data](https://podcast.thinkingelixir.com/104)
+* [R for Data Science Book](https://r4ds.had.co.nz/)

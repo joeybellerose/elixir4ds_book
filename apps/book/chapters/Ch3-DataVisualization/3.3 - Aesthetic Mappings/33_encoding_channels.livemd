@@ -1,0 +1,321 @@
+# 3.3 Encoding Channels
+
+```elixir
+Mix.install([
+  {:explorer, "~> 0.3.1"},
+  {:kino_vega_lite, "~> 0.1.4"},
+  {:kino, "~> 0.7.0"},
+  {:vega_lite, "~> 0.1.6"}
+])
+```
+
+## Section
+
+```elixir
+# Data Visualization 3.1 Intro
+alias Explorer.{DataFrame, Series}
+alias VegaLite, as: Vl
+```
+
+```elixir
+file_path = "/Users/joeybellerose/Documents/elixir4ds/data/mpg.csv"
+
+mpg =
+  DataFrame.from_csv!(file_path)
+  |> DataFrame.select("", :drop)
+```
+
+In this chapter we will go over encoding data points in charts, in order to assist in communicating a more specific visual narrative, through manipulating channels, specifically:
+
+1. Color
+2. Shape
+3. Size
+4. Opacity
+5. Conditional Formatting
+
+To run these examples you will you need to install the following Elixir packages:
+
+* explorer
+* vega_lite
+* kino
+* kino_vega_lite
+
+<!-- livebook:{"break_markdown":true} -->
+
+Any chart, on it's own, can be pretty boring and lifeless. This can lead to the reader not understanding your point. They need a splash of color or an explosion of size to start taking shape and bring understanding. In Vega-Lite, much of the look and feel of any graphic comes from adding data to channels. Doing this will breathe life into your data and help give it some shape. Great…but what are channels?
+
+[Channels](https://vega.github.io/vega-lite/docs/encoding.html#channel-definition) are the visual properties of a chart (like size, shape, and color) you [encode](https://vega.github.io/vega-lite/docs/encoding.html) with your data. Said another way, channels are where you can customize your chart with your data. To aid you in this task, Vega-Lite provides you with numerous channels to use for chart creation.
+
+The typical code structure for a chart can be automated using Smart Charts in Elixir
+
+```elixir
+Vl.new(width: 400)
+|> Vl.data_from_values(mpg)
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+|> Vl.encode_field(:color, "class", type: :nominal)
+```
+
+<!-- livebook:{"attrs":{"chart_title":null,"height":null,"layers":[{"chart_type":"point","color_field":null,"color_field_aggregate":null,"color_field_type":null,"data_variable":"mpg","x_field":"displ","x_field_aggregate":null,"x_field_type":"quantitative","y_field":"hwy","y_field_aggregate":null,"y_field_type":"quantitative"}],"vl_alias":"Elixir.Vl","width":400},"kind":"Elixir.KinoVegaLite.ChartCell","livebook_object":"smart_cell"} -->
+
+```elixir
+Vl.new(width: 400)
+|> Vl.data_from_values(mpg, only: ["displ", "hwy"])
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+```
+
+```elixir
+# Joey to create a gif of smart cell code creation using evaluate
+Vl.new(width: 400, title: "Code Template")
+|> Vl.data_from_values(mpg, only: ["displ", "hwy"])
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+```
+
+In this Section you will be focusing on changing the following line of code below that needs to be added to the template above:
+
+<!-- livebook:{"force_markdown":true} -->
+
+```elixir
+#Vl.new(width: 400, title: "Code Template")
+#|> Vl.data_from_values(mpg, only: ["displ", "hwy"])
+#|> Vl.mark(:point)
+#|> Vl.encode_field(:x, "displ", type: :quantitative)
+#|> Vl.encode_field(:y, "hwy", type: :quantitative)
+|> VL.encode_field(:XXXX, "class", type: :nominal)
+```
+
+Where the XXXX above is used to encode channels (i.e. Shape, Opacity, etc.).
+
+<!-- livebook:{"break_markdown":true} -->
+
+<!-- livebook:{"force_markdown":true} -->
+
+```elixir
+# depicts the size of the width for the chart window
+Vl.new(width: 400)
+# tells Elixir what dataset to pull
+|> Vl.data_from_values(mpg, only: ["displ", "hwy"])
+# Descripes the type of data point you prefer
+|> Vl.mark(:point)
+# The charts that we will be using today are rectangular charts, meaning you’ll need to encode the :x and :y channels
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+# the XXXX above is used to encode channels (i.e. Shape, Opacity, etc.).
+|> VL.encode_field(:XXXX, "class", type: :nominal)
+```
+
+<!-- livebook:{"break_markdown":true} -->
+
+Note: Other types of marks can be found [here](https://vega.github.io/vega-lite/docs/mark.html#types)
+
+## 1) Color
+
+```elixir
+Vl.new(width: 400, title: "Color by Class")
+|> Vl.data_from_values(mpg, only: ["displ", "hwy", "class"])
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+|> Vl.encode_field(:color, "class", type: :nominal)
+```
+
+```elixir
+
+```
+
+```elixir
+
+```
+
+```elixir
+
+```
+
+```elixir
+
+```
+
+```elixir
+
+```
+
+```elixir
+
+```
+
+```elixir
+
+```
+
+```elixir
+# Joey needs to create a gif addindg class to color in smart cells Include Title
+Vl.new(width: 400, title: "Color by Class")
+|> Vl.data_from_values(mpg, only: ["displ", "hwy", "class"])
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+|> Vl.encode_field(:color, "class", type: :nominal)
+```
+
+To change the color of all the datapoint to a single color (i.e. "black") the:
+
+<!-- livebook:{"force_markdown":true} -->
+
+```elixir
+|> Vl.encode_field(:color, "class", type: :nominal)
+```
+
+must be changed to:
+
+<!-- livebook:{"break_markdown":true} -->
+
+<!-- livebook:{"force_markdown":true} -->
+
+```elixir
+|> Vl.encode(:color, value: "black")
+```
+
+```elixir
+Vl.new(width: 400, title: "Color All Points Black")
+|> Vl.data_from_values(mpg, only: ["displ", "hwy", "class"])
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+|> Vl.encode(:color, value: "black")
+```
+
+Note: in"
+
+<!-- livebook:{"force_markdown":true} -->
+
+```elixir
+|> Vl.encode_field()
+```
+
+is changed to:
+
+<!-- livebook:{"force_markdown":true} -->
+
+```elixir
+|> Vl.encode()
+```
+
+in order to color all points black.
+
+<!-- livebook:{"break_markdown":true} -->
+
+This is due to the "_field," part of the code is shorthand for the encode funtion that uses the field parameter. Since we are not using a field from the dataset to color the points black part of the code ("_field") is not helpful. Use the more generic encode function by removing "_field," as shown above.
+
+```elixir
+Vl.new(width: 400, title: "Color Fill All Points Black")
+|> Vl.data_from_values(mpg, only: ["displ", "hwy", "class"])
+|> Vl.mark(:circle)
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+|> Vl.encode(:color, value: "black")
+```
+
+Note: To fill in the circles you must chage the mark from :point to :circle
+
+## 2) Shape
+
+Note:
+
+<!-- livebook:{"force_markdown":true} -->
+
+```elixir
+Vl.mark(:point)
+```
+
+Alough there are several mark types to choose from (other than :point) you must use :point when altering shapes
+
+```elixir
+Vl.new(width: 400, title: "Shape")
+|> Vl.data_from_values(mpg, only: ["displ", "hwy", "class"])
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+|> Vl.encode_field(:shape, "class", type: :nominal)
+```
+
+The only change was made in the last line of code to the first example in the Color section above. Here the word "color," was chaged to "shape."
+
+## 3) Size
+
+Next up is Size. The only needed change, again, is the last line of code, where we are removing ":shape," and replacing that with ":size."
+
+```elixir
+Vl.new(width: 400, title: "Size")
+|> Vl.data_from_values(mpg, only: ["displ", "hwy", "class"])
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+|> Vl.encode_field(:size, "class", type: :nominal)
+```
+
+Again, to change the data points to a solid vs. circles, change the mark from ":point," to "circle."
+
+```elixir
+Vl.new(width: 400, title: "Size With Solid Points")
+|> Vl.data_from_values(mpg, only: ["displ", "hwy", "class"])
+|> Vl.mark(:circle)
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+|> Vl.encode_field(:size, "class", type: :nominal)
+```
+
+## 4) Opacity
+
+You may have noticed that Vega_lite defaults to include opacity in all of the exersizes we have already completed. However, you can specify opacity in the last line of code, substituting ":size," for `:opacity`
+
+```elixir
+Vl.new(width: 400, title: "Opacity")
+|> Vl.data_from_values(mpg, only: ["displ", "hwy", "class"])
+|> Vl.mark(:point)
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+|> Vl.encode_field(:opacity, "class", type: :nominal)
+```
+
+Note: this chart is exactly the same as the first chart in this section (see: Code Template chart) and it does not specify for opacity in that code
+
+## 5) Conditional Encoding
+
+How does conditional formatting work?
+
+Vega-Lite’s conditions may look a little different, but are simple if-then statements. Each [condition](https://vega.github.io/vega-lite/docs/condition.html) has a test, a value and a default value. The test checks to see if a condition is true. If it is, then the value is applied. Otherwise, apply the default value.
+
+<!-- livebook:{"break_markdown":true} -->
+
+Looking at the Opacity chart above it appears that there are outliers in the dataset. If you look at the X and Y axis the outliers are grouped where: the y-axis is greater than 20 and the x-axis is greater than 5.
+
+<!-- livebook:{"break_markdown":true} -->
+
+In order to visually show the outliers you can isolate them by changing colors, shape, size, etc.. Let's try to isolate the outliers using color
+
+```elixir
+Vl.new(width: 400, title: "Conditional Encoding")
+|> Vl.data_from_values(mpg, only: ["hwy", "displ", "class"])
+|> Vl.mark(:circle)
+|> Vl.encode_field(:y, "hwy", type: :quantitative)
+|> Vl.encode_field(:x, "displ", type: :quantitative)
+|> Vl.encode(:color,
+  condition: %{test: "datum['hwy'] > 20 & datum['displ'] > 5", value: "red"},
+  value: "black"
+)
+```
+
+One thing to notice in the code above is the use of the datum variable in your conditional test.
+
+The datum variable represents a row in your dataset passed into VegaLite. You can access any column within the row by typing datum[column_name]. datum is commonly used in conditional encoding, but can be used anywhere you need to change how a column is handled based on its value. You'll see it used more in the next section on Data Transformation.
+
+## Wrapping Up
+
+Encoding channels is what brings data to life in the charts you make. Channels provide you the flexibility to customize to your heart's content and to help your users better understand the story you’re sharing with them. Even though this section coveres five different scenarios, (Color, Shape, Size, Opacity, Conditional) you only just scratched the surface of all the different channels that Vega-Lite makes available to you. Check out them out and start experimenting to see what you can come up with.
+
+In the next section, you’ll learn how to use VegaLite to [transform](https://vega.github.io/vega-lite/docs/transform.html) data.

@@ -1,0 +1,13 @@
+# Facets
+
+## Load Data
+
+```elixir
+# Find MPG CSV
+```
+
+## Facet By Rows
+
+## Facet By Columns
+
+## Side-By-Side
