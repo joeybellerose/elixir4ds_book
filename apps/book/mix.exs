@@ -45,7 +45,7 @@ defmodule Book.MixProject do
     [
       main: "1-introduction",
       source_ref: "v#{@version}",
-      assets: "chapters/images",
+      # assets: "chapters/images",
       authors: ["Joey Bellerose, Phillip Ramon"],
       extra_section: "Chapters",
       api_reference: false,
