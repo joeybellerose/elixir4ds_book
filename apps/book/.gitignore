@@ -25,6 +25,6 @@ book-*.tar
 # Temporary files, for example, from tests.
 /tmp/
 
-/chapters/data/*.csv
+/chapters/data/
 
 
