@@ -1,0 +1,20 @@
+# Chapter 1 - Welcome
+
+## Welcome to Data Science with Elixir!
+
+Data Science is a growing and exciting field full of cutting edge capabilities like...
+
+* Translating hand writting into computer text - [Digit Recognizer](https://www.kaggle.com/competitions/digit-recognizer)
+* Predicting housing prices - [House Prices](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques)
+* Creating new images based on words you provide - [Dall-e](https://openai.com/blog/dall-e/)
+
+Data Science is complex and requires skills like: Programming, Math, Stats, and Industry insight.
+There are many tools in the data Science discipline out there to help you get started. How do you decide where to focus your time? Where do you start?
+
+We beleive the answer is to start with Elixir. Elixir is an exciting state-of-the-art computer language and has a growing ecosystem of [Data Science tools](https://github.com/orgs/elixir-nx/repositories).
+
+Our goal is to get as many people as possible excited about learning to program with Elixir and Livebook.
+
+> ### Note
+> 
+> This book is a work in progress.  We will be continuously adding sections and chapters as we complete them.

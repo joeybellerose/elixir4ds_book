@@ -43,7 +43,7 @@ defmodule Book.MixProject do
 
   defp docs do
     [
-      main: "1-introduction",
+      main: "1-welcome",
       source_ref: "v#{@version}",
       # assets: "chapters/images",
       authors: ["Joey Bellerose, Phillip Ramon"],
@@ -52,7 +52,8 @@ defmodule Book.MixProject do
       # logo: "",
       source_url: @source_url,
       extras: [
-        "chapters/1-introduction.livemd",
+        "chapters/1-welcome.livemd",
+        "chapters/2-introduction.livemd",
         "chapters/3-dataviz.livemd",
         "chapters/appendix.livemd"
       ],
