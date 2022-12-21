@@ -49,7 +49,7 @@ defmodule Book.MixProject do
       authors: ["Joey Bellerose, Phillip Ramon"],
       extra_section: "Chapters",
       api_reference: false,
-      # logo: "",
+      logo: "chapters/images/logo-e4ds.jpg",
       source_url: @source_url,
       extras: [
         "chapters/1-welcome.livemd",

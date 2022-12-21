@@ -1,12 +1,13 @@
-/Users/joeybellerose/offline/elixir4ds/apps/book/doc/1-welcome.livemd
-/Users/joeybellerose/offline/elixir4ds/apps/book/doc/2-introduction.livemd
-/Users/joeybellerose/offline/elixir4ds/apps/book/doc/3-dataviz.livemd
-/Users/joeybellerose/offline/elixir4ds/apps/book/doc/appendix.livemd
+/Users/joeybellerose/offline/elixir4dsv2/apps/book/doc/1-welcome.livemd
+/Users/joeybellerose/offline/elixir4dsv2/apps/book/doc/2-introduction.livemd
+/Users/joeybellerose/offline/elixir4dsv2/apps/book/doc/3-dataviz.livemd
+/Users/joeybellerose/offline/elixir4dsv2/apps/book/doc/appendix.livemd
 1-welcome.html
 2-introduction.html
 3-dataviz.html
 404.html
 appendix.html
+assets/logo.jpg
 dist/handlebars.runtime-NWIB6V2M.js
 dist/handlebars.templates-X7YVL3G2.js
 dist/html-XN2TSG4M.js
@@ -32,7 +33,7 @@ dist/merriweather-latin-ext-300-normal-K6L27CZ5.woff2
 dist/merriweather-vietnamese-300-italic-EHHNZPUO.woff2
 dist/merriweather-vietnamese-300-normal-U376L4Z4.woff2
 dist/remixicon-E5UFLALU.woff2
-dist/search_items-367DE2B8.js
-dist/sidebar_items-657D4B86.js
+dist/search_items-B3709E48.js
+dist/sidebar_items-E3E5265C.js
 index.html
 search.html
