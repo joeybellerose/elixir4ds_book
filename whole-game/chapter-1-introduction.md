@@ -19,7 +19,7 @@ According to the [home page](https://elixir-lang.org), “Elixir is a dynamic, f
 
 **StackOverflow 2022 Survey Results**
 
-{% embed url="https://pub-f578ff1a5a42405191c4fbe188555ff4.r2.dev/images/1.0-StackOverflow2022Elixir.png" %}
+{% embed url="https://user-images.githubusercontent.com/28072958/215648595-b71e2d50-eaae-42a2-bc5d-92c3445df9e4.png" %}
 
 > **Note**
 >
@@ -30,7 +30,7 @@ According to the [home page](https://elixir-lang.org), “Elixir is a dynamic, f
 >
 > The cool part is, Phoenix is the most loved web framework according to the Stack Overflow 2022 Survey (shown below).
 
-{% embed url="https://pub-f578ff1a5a42405191c4fbe188555ff4.r2.dev/images/1.0-StackOverflow2022Phoenix.png" %}
+{% embed url="https://user-images.githubusercontent.com/28072958/215648579-52b7d68e-1e3d-432c-9b98-2b07b8305364.png" %}
 
 4. **Provides A Clear Path to Production** - Building models on your machine is rewarding, but what about when you are ready to go live? How much additional effort and complexity is needed to turn your Python or R code into something that is production ready?
 
@@ -44,7 +44,7 @@ How will you handle:
 
 In the book, [Elixir In Action](https://www.manning.com/books/elixir-in-action), Sasa Juric showed (in the table below) that Elixir (built on top of Erlang) has the capability to answer all the questions above and more!
 
-{% embed url="https://pub-f578ff1a5a42405191c4fbe188555ff4.r2.dev/images/1.0-elixir-in-action-table.png" %}
+{% embed url="https://user-images.githubusercontent.com/28072958/215648653-15f09668-9888-4630-9613-4b90fe9192bc.png" %}
 
 With Elixir, you will not need additional technologies to handle these real-world requirements. If you are new to programming, why burden yourself with additional headaches of learning how to share your work with others when these problems have already been solved in Elixir?
 
@@ -60,13 +60,13 @@ There are 3 ways to get up and going with Elixir and Livebook.
 
 The easiest way to get up and going is heading over to [Livebook.dev](https://livebook.dev/#install) and selecting the Mac or Windows option which will download the Elixir language and Livebook software to your computer. Once downloaded, simply install Livebook, and you’re up and running. That’s it!
 
-{% embed url="https://pub-f578ff1a5a42405191c4fbe188555ff4.r2.dev/images/1.0-flyio.png" %}
+{% embed url="https://user-images.githubusercontent.com/28072958/215648639-aeca4187-9127-47f7-b1b8-f4566364a523.png" %}
 
 #### Option 2
 
 If you prefer to work in the cloud, select the Fly.io option. This requires setting up an account and a few odds and ends. You should be up and running in under 5 minutes. You may need to pay for compute usage based on the amount of RAM needed for you analysis.
 
-{% embed url="https://pub-f578ff1a5a42405191c4fbe188555ff4.r2.dev/images/1.0-flyio2.png" %}
+{% embed url="https://user-images.githubusercontent.com/28072958/215648618-64f848ac-44d1-4d70-9a6a-2b5670a30376.png" %}
 
 #### Option 3
 
